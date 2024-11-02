@@ -4,10 +4,8 @@ import { useState } from "react";
 
 const Counter = () => {
   const [changeBy, setChangeBy] = useState(1)
-  const [count, setCount] = useState(changeBy);
+  const [count, setCount] = useState(0);
 
-  console.log( `type of chageBy ${typeof changeBy} `)
-  console.log(`type of count ${typeof count} `)
   return (
     <div className="mt-10 mx-auto">
       <h1 className="text-2xl text-center">My Counter</h1>
@@ -32,11 +30,22 @@ const Counter = () => {
           placeholder="Increment / Decrement By.."
           className="border rounded w-60 py-2.5 px-1.5"
           value={changeBy}
-          onChange={(e) => setChangeBy(Number(e.target.value))}
+          onChange={(e) =>{
+            let value = e.target.value
+            let numberValue = value === ''? '' : parseInt(value)
+            setChangeBy(numberValue)
+          }
+          }
         />
       </div>
       <div className="mt-6 text-center">
-        <button className="py-3 px-8 text-white bg-primary leading-none rounded">
+        <button 
+        className="py-3 px-8 text-white bg-primary leading-none rounded"
+        onClick={() => {
+            setCount(0)
+            setChangeBy(1)
+        }}
+        >
           Reset
         </button>
       </div>
