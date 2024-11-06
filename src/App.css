@@ -1,0 +1,10 @@
+.img_wrapper {
+  cursor: pointer;
+}
+.img_wrapper img {
+  max-width: 150px;
+}
+.selected_image img {
+  max-width: 300px;
+  margin: 0 auto;
+}
