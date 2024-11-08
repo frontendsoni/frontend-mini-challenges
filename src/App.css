@@ -1,3 +1,4 @@
+/* 02-image-gallery */
 .img_wrapper {
   cursor: pointer;
 }
@@ -7,4 +8,43 @@
 .selected_image img {
   max-width: 300px;
   margin: 0 auto;
+}
+
+/* 04-expense-tracker */
+.expense-form input, .expense-form select {
+display: block;
+margin-top: 4px;
+border: 1px solid #969696;
+width: 100%;
+padding: 4px 7px;
+font-size: 14px;
+border-radius: 4px;
+}
+.expense-form .submit_btn button {
+  width: 100%;
+  background-color: #e5e5e5;
+  color: #242424;
+  text-align: center;
+  padding: 4px 7px;
+  border-radius: 4px;
+}
+.tracker_wrap table, .tracker_wrap th, .tracker_wrap td {
+  border: 1px solid #969696;
+  padding: 7px;
+  text-align: left;
+  white-space: nowrap;
+}
+.tracker_wrap th {
+  font-weight: 500;
+  font-size: 15px;
+}
+.tracker_wrap th select {
+  width: 100%;
+}
+.tracker_wrap td {
+  font-size: 14px;
+}
+.tracker_wrap tfoot td {
+  font-size: 15px;
+  font-weight: 500;
 }
