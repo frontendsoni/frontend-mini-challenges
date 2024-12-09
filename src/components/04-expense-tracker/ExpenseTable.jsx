@@ -46,7 +46,7 @@ const ExpenseTable = ({expense}) => {
           <td>Total</td>
           <td></td>
           <td>
-          ₹{expense && expense.reduce((sum, item) => sum + item.amount, 0)}
+          ₹{expense && expense.reduce((sum, item) => sum + parseInt(item.amount), 0)}
           </td>
         </tr>
       </tfoot>
