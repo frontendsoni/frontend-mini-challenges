@@ -1,6 +1,6 @@
 const InputField = ({label, id, type, name, value, onchange, error}) => {
   return (
-    <div className="form_input mb-3">
+    <div className="form_input mb-4">
       <label htmlFor={id}>{label}</label>
       <input
         type={type}
