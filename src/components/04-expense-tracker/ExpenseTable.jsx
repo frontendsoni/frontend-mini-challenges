@@ -1,9 +1,10 @@
 import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useState } from 'react'
+import { useFilter } from '../../hooks/useFilter'
 
 const ExpenseTable = ({expense}) => {
-
+  const [filteredData, setQuery] = useFilter(expense, (data) => data.category)
   return (
     <div className="table_wrap flex-1 mt-8 md:mt-0">
       <table className='w-full'>
@@ -11,7 +12,7 @@ const ExpenseTable = ({expense}) => {
         <tr>
         <th>Title</th>
         <th>
-        <select  id='category'>
+        <select  id='category' onChange={(e) => setQuery(e.target.value)}>
           <option value="">All</option>
           <option value="grocery">Grocery</option>
           <option value="clothes">Clothes</option>
@@ -31,15 +32,16 @@ const ExpenseTable = ({expense}) => {
         </th>
         </tr>
       </thead>
+ 
       <tbody>
-        
-        {expense?.map(({id, title, category, amount}) => {
-           return (<tr key={id}>
-              <td>{title}</td>
-              <td>{category}</td>
-              <td>₹{amount}</td>
-            </tr>)
-        })}
+      {
+        filteredData?.map(({id, title, category, amount}) => {
+             return (<tr key={id}>
+               <td>{title}</td>
+               <td>{category}</td>
+               <td>₹{amount}</td>
+             </tr>)
+         })} 
       </tbody>
       <tfoot>
         <tr>
